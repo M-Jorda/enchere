@@ -43,7 +43,7 @@
 		<input type="checkbox" name="SeSouvenirDeMoi" id="SeSouvenirDeMoi">
 	</section>
 	
-	<a href="#">Mot de passe oublié</a>
+	<a href="${pageContext.request.contextPath}/Visitor/ForgotPassword">Mot de passe oublié</a>
 	
 	<footer>
 		<jsp:include page="includeJSP/Footer.jsp" />

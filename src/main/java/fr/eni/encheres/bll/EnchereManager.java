@@ -69,6 +69,10 @@ public class EnchereManager {
 	public User selectByPseudo(String login) throws BusinessException {
 		return userDAO.selectByPseudo(login);
 	}
+	
+	public boolean forgotPassword(String mail) throws BusinessException {
+		return userDAO.forgotPassword(mail);
+	}
 
 /*
  *  ---------------CREATION COMPTE ---------------

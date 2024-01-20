@@ -30,9 +30,6 @@ public class UserDAOJdbcImpl implements UserDAO {
 		private static final String CONNECT_USER = "SELECT mot_de_passe FROM utilisateurs WHERE pseudo = ?";
 		private static final String GET_TOKEN = "SELECT token FROM token_user WHERE token = ? AND expiry_date > NOW()";
 		private static final String DELETE_TOKEN = "DELETE * FROM token_user WHERE token = ?";
-		private static final String NOM_INCORRECT = null;
-		private static final String PRENOM_INCORRECT = null;
-		private static final String EMAIL_INCORRECT = null;
 
 		
 		public void insert(User user) throws BusinessException {
@@ -320,11 +317,12 @@ public class UserDAOJdbcImpl implements UserDAO {
 			try (Connection cnx = ConnectionProvider.getConnection();
 					PreparedStatement pstmt = cnx.prepareStatement(requete)){
 				pstmt.setString(1, login);
-			try(ResultSet rs = pstmt.executeQuery()){
-				if (rs.next()) {
-					user = new User(rs.getInt("no_utilisateur"),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getString("administrateur"));
+				
+				try(ResultSet rs = pstmt.executeQuery()){
+					if (rs.next()) {
+						user = new User(rs.getInt("no_utilisateur"),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getString("administrateur"));
+					}
 				}
-			}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -342,21 +340,25 @@ public class UserDAOJdbcImpl implements UserDAO {
 		public User selectByMail(String login) {
 			return selectByLogin(SELECT_BY_MAIL, login);
 		}
-		
-		@Override
-		public User nomIncorrect(String nom) {
-			return selectByLogin(NOM_INCORRECT,nom);
-		}
-		
-		@Override
-		public User prenomIncorrect(String prenom) {
-			return selectByLogin(PRENOM_INCORRECT,prenom);
-		}
-		
-		@Override
-		public User emailIncorrect(String email) {
-			return selectByLogin(EMAIL_INCORRECT,email);
-		}
 
+		@Override
+		public boolean forgotPassword(String mail) throws BusinessException {			
+			try (Connection cnx = ConnectionProvider.getConnection();
+					PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_MAIL)){
+				pstmt.setString(1, mail);
+				
+				try (ResultSet rs = pstmt.executeQuery()) {
+		            if (rs.next()) {
+		                // Mail trouvé en base de données
+		                return true;
+		            } else {
+		                // Aucun mail similaire en base de données
+		                return false;
+		            }
+		        }
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
 }
-

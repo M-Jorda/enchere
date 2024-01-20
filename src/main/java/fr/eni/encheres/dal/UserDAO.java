@@ -30,10 +30,6 @@ public interface UserDAO {
 	public User selectByMail(String login) throws BusinessException;
 
 	public User selectByPseudo(String login) throws BusinessException;
-
-	public User nomIncorrect(String nom) throws BusinessException;
-
-	public User prenomIncorrect(String prenom) throws BusinessException;
 	
-	public User emailIncorrect(String email) throws BusinessException;
+	public boolean forgotPassword(String mail) throws BusinessException;
 }
