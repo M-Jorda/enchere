@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#butt {
+	padding: 5vh 15vw;
+	border-radius: 15px;
+	border-style: none;
+	max-height: 15vh;
+}
+#butt:hover {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
+/* ---------------------------------------------------------
+							HEADER
+--------------------------------------------------------- */
+
+header{
+	min-height: 5vh;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	margin: 2vh 2vw;
+}
+
+nav ul {
+	display: flex;
+	list-style: none;
+	flex-direction: row-reverse;
+	width: 15vw;
+}
+
+nav ul li {
+	margin: 0 5%;
+}
+
+/* ---------------------------------------------------------
+							MAIN
+--------------------------------------------------------- */
+
+main {
+	display: flex;
+	flex-direction: column;
+	min-height: 90vh;
+	margin-bottom: -10vh; 
+	padding: 0 5%;
+}
+
+main h2 {
+	text-align: center;
+	margin: 2vh 0;
+}
+
+form {
+	display: flex;
+	justify-content: space-evenly;
+	align-items:center;
+	height: 80vh;
+}
+
+form section {
+	display: flex;
+	flex-direction: column;
+	width: 30vw
+}
+
+.form-paire {
+	display: flex;
+	margin: 2vh 0;
+}
+
+label {
+	margin-bottom: 1vh;
+}
+
+.filtre {
+	flex-direction: column;
+}
+.filtre input {
+	width: 93%;
+	height: 5vh;
+	border-radius: 20px;
+	padding: 0 3%;
+}
+
+.categorie {
+	justify-content: space-between;
+}
+.categorie select {
+	width: 80%;
+}
+
+/* ---------------------------------------------------------
+							FOOTER
+--------------------------------------------------------- */
+
+footer {
+	display: flex;
+	height: 10vh;
+}

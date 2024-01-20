@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	color: #312f2f;
+	background-color: whitesmoke;
+}
+
+#butt {
+	padding: 5vh 15vw;
+	border-radius: 15px;
+	border-style: none;
+	max-height: 15vh;
+}
+#butt:hover {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
+/* ---------------------------------------------------
+						HEADER
+--------------------------------------------------- */
+
+header{
+	min-height: 5vh;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	margin: 2vh 2vw;
+}
+
+nav ul {
+	display: flex;
+	list-style: none;
+	flex-direction: row-reverse;
+	width: 15vw;
+}
+
+nav ul li {
+	margin: 0 5%;
+}
+
+/* ---------------------------------------------------------
+							MAIN
+--------------------------------------------------------- */
+
+h2 {
+	text-align: center;	
+}
+
+form {
+	display: flex;
+}
+
+img {
+	padding: 5%;
+	width: 20%;
+}
+
+.main-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 80vh;
+	padding: 2%;
+}
+
+.bigger {
+	display: grid;
+	grid-template-columns: 35% 65%;
+}
+
+div {
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.article-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 50%;
+}
+
+.adresse-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 30%
+}
+
+.button-container {
+	height: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
