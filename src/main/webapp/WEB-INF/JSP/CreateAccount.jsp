@@ -9,6 +9,7 @@
 		<meta charset="UTF-8">
 		<title>Créer un compte</title>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/style/style.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/style/profile.css">
 		
 	</head>
 	
@@ -23,7 +24,7 @@
 	<main>
 		<h2>Mon profil</h2>
 			
-		<form method="post">
+		<form method="post" class="form">
 		
 		<c:if test="${!empty listeCodesErreur}">
 			<section class="alert alert-danger" role="alert">
@@ -41,58 +42,59 @@
 		
 			<section class="inputs">
 			
-				<section class="left">
+				<section class="left informations">
 				
-					<div>
+					<div class="pseudo">
 						<label for="pseudo">Pseudo:</label>
-						<input type="text" id="pseudo" name="pseudo"/>
+						<input type="text" id="pseudo" name="pseudo" maxlength="30"/>
 					</div>
 					
 					<div>
 						<label for="nom">Nom:</label>
-						<input type="text" id="nom" name="nom"/>
+						<input type="text" id="nom" name="nom" maxlength="30"/>
 					</div>
 					
 					<div>
 						<label for="prenom">Prénom:</label>
-						<input type="text" id="prenom" name="prenom"/>
+						<input type="text" id="prenom" name="prenom" maxlength="30"/>
 					</div>
 					
 					<div>
 						<label for="email">Email:</label>
-						<input type="text" id="email" name="email"/>
+						<input type="email" id="email" name="email" maxlength="50"/>
 					</div>
 					
 					<div>
 						<label for="tel">Tel:</label>
-						<input type="tel" id="tel" name="tel"/>
+						<input type="tel" id="tel" name="tel" maxlength="15"/>
 					</div>
+
 				</section>
 			
-				<section class="right">
+				<section class="right informations">
 					<div>
 						<label for="rue">Rue:</label>
-						<input type="text" id="rue" name="rue"/>
+						<input type="text" id="rue" name="rue" maxlength="30"/>
 					</div>
 					
 					<div>
 						<label for="codePostal">Code Postal:</label>
-						<input type="text" id="codePostal" name="codePostal"/>
+						<input type="text" id="codePostal" name="codePostal" maxlength="10"/>
 					</div>
 					
 					<div>
 						<label for="ville">Ville:</label>
-						<input type="text" id="ville" name="ville"/>
+						<input type="text" id="ville" name="ville" maxlength="50"/>
 					</div>
 					
 					<div>
 						<label for="mdp">Mot de passe:</label>
-						<input type="password" id="mdp" name="mdp"/>
+						<input type="password" id="mdp" name="mdp" minlength="5" maxlength="30"/>
 					</div>
 			
 					<div>
 						<label for="conf">Confirmation:</label>
-						<input type="text" id="conf" name="conf"/>
+						<input type="text" id="conf" name="conf" minlength="5" maxlength="30"/>
 					</div>
 					
 				</section>
@@ -103,9 +105,8 @@
 				
 			<section class="buttons">
 			
-				<input type="submit" value="Créer"/>
-				
-				<input type="button" value="Annuler"/>
+				<input type="submit" value="Créer" id="butt" class="reg"/>
+				<a href="${pageContext.request.contextPath}/Visitor/Home" id="butt" class="back">Retour</a>
 				
 			</section>
 			
