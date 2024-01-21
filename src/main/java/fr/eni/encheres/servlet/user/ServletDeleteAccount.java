@@ -16,16 +16,11 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/Connected/DeleteAccount")
 public class ServletDeleteAccount extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public ServletDeleteAccount() {
-        super();
-       
-    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/JSP/AlterAccount.jsp").forward(request, response);
-		
+		doPost(request, response);
 	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
             // Récupérer l'identifiant de l'utilisateur à supprimer depuis la requête
@@ -35,13 +30,14 @@ public class ServletDeleteAccount extends HttpServlet {
 			EnchereManager eManager = EnchereManager.getInstance();
 			eManager.deleteUser(noUser);
 			
-			response.sendRedirect("HomeVisitor.jsp");
+			request.getRequestDispatcher("/WEB-INF/JSP/HomeVisitor.jsp").forward(request, response);
 
 
         } catch (BusinessException e) {
             e.printStackTrace();
         }
 	}
+	
 	public User getUser(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 	    User user = (User) session.getAttribute("user");

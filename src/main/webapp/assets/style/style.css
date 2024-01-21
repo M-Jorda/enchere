@@ -6,11 +6,15 @@
 }
 
 #butt {
-	padding: 5vh 15vw;
+	margin: 0 2vh;
+	padding: 3vh 5vw;
 	border-radius: 15px;
 	border-style: none;
-	max-height: 15vh;
+	max-height: 10vh;
+	border: 2px solid black;
+	color: black;
 }
+
 #butt:hover {
 	cursor: pointer;
 }
@@ -23,6 +27,11 @@ a {
 a:visited {
 	color: black;
 }
+
+body {
+	background-color: whitesmoke;
+}
+
 
 /* ---------------------------------------------------------
 							HEADER
@@ -101,8 +110,15 @@ label {
 .categorie {
 	justify-content: space-between;
 }
+
 .categorie select {
 	width: 80%;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	
 }
 
 /* ---------------------------------------------------------

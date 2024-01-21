@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>Modifier mon compte</title>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/style/style.css">
-		
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/style/profile.css">
 	</head>
 	
 	<body>
@@ -21,13 +21,13 @@
 	<main>
 		<h2>Mon profil</h2>
 			
-		<form method="post">
+		<form method="post" class="form">
 		
 			<section class="inputs">
 			
-				<section class="left">
+				<section class="left informations">
 				
-					<div>
+					<div class="pseudo">
 						<label for="pseudo">Pseudo:</label>
 						<input type="text" id="pseudo" name="pseudo" maxlength="30"/>
 					</div>
@@ -51,9 +51,14 @@
 						<label for="tel">Tel:</label>
 						<input type="tel" id="tel" name="tel" maxlength="15"/>
 					</div>
+					
+					<div>
+						<label for="credit">Crédit :</label>
+						<label id="credit">${user.credit }</label>
+					</div>
 				</section>
 			
-				<section class="right">
+				<section class="right informations">
 					<div>
 						<label for="rue">Rue:</label>
 						<input type="text" id="rue" name="rue" maxlength="30"/>
@@ -86,21 +91,18 @@
 					
 				</section>
 				
-				<div>Crédit :</div>
-				
 			</section>
 				
 				
 				
 			<section class="buttons">
 			
-				<input type="submit" value="Enregistrer"/>
+				<input type="submit" value="Enregistrer" id="butt" class="reg"/>
+				<a href="${pageContext.request.contextPath}/Connected/Profile" id="butt" class="back">Retour</a>
+				<a href="${pageContext.request.contextPath}/Connected/DeleteAccount" id="butt" class="delete">Supprimer</a>
 				
 			</section>
 			
-		</form>
-		<form action="${pageContext.request.contextPath}/Connected/DeleteAccount" method="post">
-			<input type="submit" value="Supprimer mon compte"/>
 		</form>
 			
 		</main>
