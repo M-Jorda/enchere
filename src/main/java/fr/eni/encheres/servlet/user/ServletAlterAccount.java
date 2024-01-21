@@ -35,15 +35,15 @@ public class ServletAlterAccount extends HttpServlet {
 		int noUser = user.getNoUtilisateur();
 
 		try {
-			String pseudo = request.getParameter("pseudo");
-			String nom = request.getParameter("nom");
-			String prenom = request.getParameter("prenom");
-			String email = request.getParameter("email");
-			String tel = request.getParameter("tel");
-			String rue = request.getParameter("rue");
-			String codePostal = request.getParameter("codePostal");
-			String ville = request.getParameter("ville");
-			String mdp = request.getParameter("mdp");
+			String pseudo = notEmptyField(request.getParameter("pseudo"),user.getPseudo());
+			String nom = notEmptyField(request.getParameter("nom"),user.getNom());
+			String prenom = notEmptyField(request.getParameter("prenom"),user.getPrenom());
+			String email = notEmptyField(request.getParameter("email"),user.getEmail());
+			String tel = notEmptyField(request.getParameter("tel"),user.getTel());
+			String rue = notEmptyField(request.getParameter("rue"),user.getRue());
+			String codePostal = notEmptyField(request.getParameter("codePostal"),user.getCodePostale());
+			String ville = notEmptyField(request.getParameter("ville"),user.getVille());
+			String mdp = notEmptyField(request.getParameter("mdp"),user.getMdp());
 			String newMdp = request.getParameter("newMdp");
 			String conf = request.getParameter("conf");
 			
@@ -62,7 +62,7 @@ public class ServletAlterAccount extends HttpServlet {
 	        try {
 				if (eManager.connexion(pseudo, mdp) != null) {
 				    request.getSession().setAttribute("user", userModified); // Enregistrement dans la session
-				    request.getRequestDispatcher("/WEB-INF/JSP/HomeVisitor.jsp").forward(request, response);
+				    request.getRequestDispatcher("/WEB-INF/JSP/Home.jsp").forward(request, response);
 				} 
 			} catch (BusinessException e) {
 				e.printStackTrace();
@@ -87,6 +87,14 @@ public class ServletAlterAccount extends HttpServlet {
 		HttpSession session = request.getSession();
 	    User user = (User) session.getAttribute("user");
 		return user;
+	}
+	
+	public String notEmptyField(String field, String attribut) {
+		if (field == null || field.isEmpty()) {
+	        return attribut;
+	    } else {
+	        return field;
+	    }
 	}
 }
 
