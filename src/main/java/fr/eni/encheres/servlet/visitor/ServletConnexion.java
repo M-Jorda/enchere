@@ -1,4 +1,4 @@
-package fr.eni.encheres.servlet.user;
+package fr.eni.encheres.servlet.visitor;
 
 import java.io.IOException;
 
@@ -33,7 +33,7 @@ public class ServletConnexion extends HttpServlet {
         if (isRememberMeChecked) {
         	String token = null;
 			try {
-				token = EnchereManager.getInstance().tokenSeSouvenirDeMoi();
+				token = EnchereManager.getInstance().tokenSeSouvenirDeMoi(pseudo);
 				Cookie rememberMeCookie = new Cookie("rememberMe", token);
 	        	response.addCookie(rememberMeCookie);
 			} catch (BusinessException e) {

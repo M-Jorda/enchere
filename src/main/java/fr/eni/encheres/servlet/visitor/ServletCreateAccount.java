@@ -1,4 +1,4 @@
-package fr.eni.encheres.servlet.user;
+package fr.eni.encheres.servlet.visitor;
 
 
 import java.io.IOException;
