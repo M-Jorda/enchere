@@ -1,4 +1,4 @@
-<form action="${pageContext.request.contextPath}/ServletResearch" method="post">
+<form action="${pageContext.request.contextPath}/Connected/ServletResearch" method="post">
 	<section>
 	
 		<div class="filtre form-paire">

@@ -58,9 +58,9 @@
 			
 		</section>
 			
-		<section class="asdresse-container">
+		<section class="adresse-container">
 		
-			<span>Retrait</span>
+			<span class="adresse-title">Retrait</span>
 		
 			<div>
 				<label for="rue">Rue :</label>
@@ -81,8 +81,8 @@
 		
 		<div class="button-container">
 		
-			<input type="submit">
-			<a href="${pageContext.request.contextPath}/Home" id="butt">Annuler</a>
+			<input type="submit" id="butt">
+			<a href="${pageContext.request.contextPath}/Connected/Home" id="butt">Annuler</a>
 		
 		</div>
 		
