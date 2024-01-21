@@ -29,8 +29,11 @@ public abstract class CodesResultatBLL {
  * 						NOUVELLE VENTE
 -------------------------------------------------------- */
 	
-	public static final int CHAMP_OBLIGATOIRE = 20100;
-	public static final int CHAMPS_OBLIGATOIRE = 20101;
+	public static final int NOM_TROP_LONG = 20100;
+	public static final int DES_TROP_LONG = 20101;
+	public static final int RUE_TROP_LONG = 20102;
+	public static final int CPOSTAL_TROP_LONG = 20103;
+	public static final int VILLE_TROP_LONG = 20104;
 	
 	public static final int DATE_DEBUT_ANTERIEUR = 20110;
 	public static final int DATE_FIN_ANTERIEUR = 20111;
@@ -40,9 +43,10 @@ public abstract class CodesResultatBLL {
 	public static final int PHOTO_NON_RECONNU = 20130;
 	
 	public static final int USER_INTROUVABLE = 20121;
-	
-	public static final int NOM_TROP_LONG = 20130;
-	
+
+	public static final int DES_OBLIGATOIRE = 20130;
+	public static final int NOM_OBLIGATOIRE = 20131;
+
 	public static final int CHAMP_NON_CORRECT = 20140;
 
 }
