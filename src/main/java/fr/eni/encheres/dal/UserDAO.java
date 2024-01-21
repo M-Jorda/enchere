@@ -20,9 +20,7 @@ public interface UserDAO {
 // -------------------------- CONNEXION ------------------------
 	
 	public boolean connexion(String user, String mdp) throws BusinessException;
-	
-	public String tokenSeSouvenirDeMoi() throws BusinessException;
-	
+		
 	public void deleteTokenSeSouvenirDeMoi(String pseudo, String token) throws BusinessException;
 	
 	public boolean isValidTokenSeSouvenirDeMoi(String pseudo, String token) throws BusinessException;
@@ -32,4 +30,6 @@ public interface UserDAO {
 	public User selectByPseudo(String login) throws BusinessException;
 	
 	public boolean forgotPassword(String mail) throws BusinessException;
+
+	public String tokenSeSouvenirDeMoi(String pseudo) throws BusinessException;
 }

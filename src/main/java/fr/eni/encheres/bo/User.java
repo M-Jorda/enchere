@@ -13,7 +13,7 @@ public class User {
 	private String ville;
 	private String mdp;
 	private int credit;
-	private String admin;
+	private boolean admin;
 	
 	public User() {
 		super();
@@ -32,7 +32,7 @@ public class User {
 		setVille(_ville);
 		setMdp(_mdp);
 		setCredit(0);
-		setAdmin("oui");
+		setAdmin(false);
 	}
 	public User(String _pseudo, String _nom, String _prenom, String _email, String _tel, String _rue, String _codePostale,
 			String _ville, String _mdp, int noUser) {
@@ -50,7 +50,7 @@ public class User {
 	}
 
 	public User(int noUtilisateur, String pseudo, String nom, String prenom, String email, String tel, String rue,
-			String codePostale, String ville, String mdp, int credit, String admin) {
+			String codePostale, String ville, String mdp, int credit, boolean admin) {
 		super();
 		setNoUtilisateur(noUtilisateur);
 		setPseudo(pseudo);
@@ -63,7 +63,7 @@ public class User {
 		setVille(ville);
 		setMdp(mdp);
 		setCredit(0);
-		setAdmin("oui");
+		setAdmin(false);
 	}
 	
 	public User(String rue, String codePostale, String ville) {
@@ -160,12 +160,12 @@ public class User {
 		this.credit = credit;
 	}
 	
-	public String getAdmin() {
+	public boolean getAdmin() {
 		return admin;
 	}
 	
-	public void setAdmin(String string) {
-		this.admin = string;
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 	@Override

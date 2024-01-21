@@ -28,6 +28,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 				+ "WHERE no_utilisateur=?";
 		//---------------------------------------------- CONNEXION -----------------------------------------------------------------
 		private static final String CONNECT_USER = "SELECT mot_de_passe FROM utilisateurs WHERE pseudo = ?";
+		private static final String INSERT_TOKEN = "INSERT INTO token_user (token, no_utilisateur) values (?, ?);";
 		private static final String GET_TOKEN = "SELECT token FROM token_user WHERE token = ? AND expiry_date > NOW()";
 		private static final String DELETE_TOKEN = "DELETE * FROM token_user WHERE token = ?";
 
@@ -255,14 +256,20 @@ public class UserDAOJdbcImpl implements UserDAO {
 
 		
 		@Override
-		public String tokenSeSouvenirDeMoi() throws BusinessException {
+		public String tokenSeSouvenirDeMoi(String pseudo) throws BusinessException {
 			String token = null;
+			User user = selectByPseudo(pseudo);
 			
-			try {
+			try(Connection cnx = ConnectionProvider.getConnection()) {
+				PreparedStatement psmt = cnx.prepareStatement(INSERT_TOKEN);
+				
 				SecureRandom random = new SecureRandom();
 		        byte[] bytes = new byte[64]; // 64 bytes = 512 bits
 		        random.nextBytes(bytes);
 		        token = Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
+		        
+		        psmt.setString(1, token);
+		        psmt.setInt(2, user.getNoUtilisateur());
 		        
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -320,7 +327,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 				
 				try(ResultSet rs = pstmt.executeQuery()){
 					if (rs.next()) {
-						user = new User(rs.getInt("no_utilisateur"),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getString("administrateur"));
+						user = new User(rs.getInt("no_utilisateur"),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getBoolean("administrateur"));
 					}
 				}
 			} catch (SQLException e) {

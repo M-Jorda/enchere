@@ -144,8 +144,8 @@ public class EnchereManager {
 		return user;
 	}
 	
-	public String tokenSeSouvenirDeMoi() throws BusinessException {
-		return userDAO.tokenSeSouvenirDeMoi();
+	public String tokenSeSouvenirDeMoi(String pseudo) throws BusinessException {
+		return userDAO.tokenSeSouvenirDeMoi(pseudo);
 	}
 	
 	public void deleteTokenSeSouvenirDeMoi(String pseudo, String token) throws BusinessException {
