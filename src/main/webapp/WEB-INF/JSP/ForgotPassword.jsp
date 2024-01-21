@@ -2,24 +2,26 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Forgot password</title>
-</head>
-<body>
-
-	<jsp:include page="includeJSP/H1.jsp" />
+	<head>
+		<meta charset="UTF-8">
+		<title>Forgot password</title>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/style/style.css">
+	</head>
 	
-	<form method="post">
+	<body>
 	
-		<label for="email">Entrer votre Email</label>
-		<input type="text" id="email" name="email">
+		<jsp:include page="includeJSP/H1.jsp" />
 		
-	</form>
+		<form method="post">
+		
+			<label for="email">Entrer votre Email</label>
+			<input type="text" id="email" name="email">
+			
+		</form>
+		
+		<footer>
+			<jsp:include page="includeJSP/Footer.jsp" />
+		</footer>
 	
-	<footer>
-		<jsp:include page="includeJSP/Footer.jsp" />
-	</footer>
-
-</body>
+	</body>
 </html>
