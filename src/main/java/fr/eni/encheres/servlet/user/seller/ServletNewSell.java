@@ -74,13 +74,13 @@ public class ServletNewSell extends HttpServlet {
 			
 			try { 
 				//si le formulaire d'adresse de livraison est inchangé, ou vide, ne change rien, sinon change dans la BDD
-				if (	(!rue.equals(user.getRue()) || !rue.isEmpty()) || 
+				/*if (	(!rue.equals(user.getRue()) || !rue.isEmpty()) || 
 						(!codePostal.equals(user.getCodePostale()) || !codePostal.isEmpty()) || 
 						(!ville.equals(user.getVille()) || !ville.isEmpty())) {
 					
 					User updatedUser = new User(rue, codePostal, ville);
 					eManager.updateUser(updatedUser);
-				}
+				}*/
 				
 				//Insertion dans la bdd de l'objet
 				eManager.insertArticle(art);
